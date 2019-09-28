@@ -1,0 +1,25 @@
+
+
+version: '3.1'
+
+services:
+
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: administrator
+      MYSQL_DATABASE: taller_python
+      MYSQL_USER: admin_app
+      MYSQL_PASSWORD: 1234asd
+    volumes:
+            - '~/dockers/mysql:/var/lib/mysql'
+    ports:
+      - 33060:33060
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
