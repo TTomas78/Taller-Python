@@ -1,1 +1,1 @@
-from app.main.controllers.test_controller import api as test_ns
+from app.main.controllers.supermarket_controller import api as supermarket_ns
