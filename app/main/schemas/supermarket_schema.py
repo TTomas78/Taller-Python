@@ -14,8 +14,8 @@ class SupermarketModelSchema(BaseSchema):
     open_time = fields.Time(format='%H:%M')
     close_time = fields.Time(format='%H:%M')
 
-    @post_load()
-    def post_load(self, data):
-        if data.open_time > data.close_time:
-            raise ValidationError(message={'Close_time is greather than open_time'})
-        return data
+    # @post_load()
+    # def post_load(self, data):
+    #     if data.open_time > data.close_time:
+    #         raise ValidationError(message={'Close_time is greather than open_time'})
+    #     return data

@@ -3,11 +3,12 @@ from app.main.models.base_model import BaseModel
 from app.main.utils.seconds_converter import seconds_to_time
 from app.main.utils.seconds_converter import time_to_seconds
 
+
 class SupermarketModel(BaseModel):
     __tablename__ = 'supermarkets'
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    name = db.Column(db.String(100), nullable=False)
+    name = db.Column(db.String(100), nullable=False, unique=True)
     address = db.Column(db.String(100), nullable=False)
     _open_time = db.Column("open_time", db.Integer(), nullable=False)
     _close_time = db.Column("close_time", db.Integer(), nullable=False)
