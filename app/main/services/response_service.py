@@ -1,8 +1,14 @@
 import json
+import time
 
 
 class ResponseService():
     def __init__(self):
+        self._data = None
+        self._messages = []
+        self._success = False
+
+    def reset_service(self):
         self._data = None
         self._messages = []
         self._success = False
@@ -14,7 +20,6 @@ class ResponseService():
             self._data = None
         else:
             self._success = True
-
         return self._return_json()
 
     def add_messages(self, message):
@@ -22,8 +27,8 @@ class ResponseService():
 
     def _return_json(self):
         response = {
-            'success': self._success,
-            'data': self._data,
-            'message': self._messages,
+            "success": self._success,
+            "data": self._data,
+            "message": self._messages,
         }
-        return json.dumps(response)
+        return response
