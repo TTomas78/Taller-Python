@@ -3,10 +3,18 @@ import time
 
 
 class ResponseService():
-    def __init__(self):
-        self._data = None
-        self._messages = []
-        self._success = False
+    _data: None
+    _messages: []
+    _success: False
+
+    def init_app(self, app):
+
+        self.reset_service()
+
+        @app.teardown_appcontext
+        def teardown_response_service(response_or_exc):
+            self.reset_service()
+            return response_or_exc
 
     def reset_service(self):
         self._data = None

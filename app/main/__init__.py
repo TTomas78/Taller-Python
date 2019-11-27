@@ -18,6 +18,6 @@ def create_app(config_name):
     ModelCharger()
 
     with app.app_context():
-        ResponseService.reset_service()
+        ResponseService.init_app(app)
         db.init_app(app)
         return app
